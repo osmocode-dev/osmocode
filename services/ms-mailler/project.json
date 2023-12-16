@@ -1,0 +1,53 @@
+{
+  "name": "ms-mailler",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "services/ms-mailler/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/services/ms-mailler",
+        "main": "services/ms-mailler/src/main.ts",
+        "tsConfig": "services/ms-mailler/tsconfig.app.json",
+        "assets": ["services/ms-mailler/src/assets"],
+        "webpackConfig": "services/ms-mailler/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "ms-mailler:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "ms-mailler:build:development"
+        },
+        "production": {
+          "buildTarget": "ms-mailler:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "services/ms-mailler/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}

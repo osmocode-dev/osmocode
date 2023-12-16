@@ -1,0 +1,14 @@
+{
+  "name": "@osmo/nest",
+  "version": "0.0.1",
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "type": "commonjs",
+  "main": "./index.js",
+  "typings": "./index.d.ts",
+  "peerDependencies": {
+    "@nestjs/typeorm": "^10.0.1",
+    "typeorm": "^0.3.17"
+  }
+}

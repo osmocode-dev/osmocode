@@ -1,0 +1,6 @@
+version: '3.9'
+
+include:
+  - ./docker/compose.broker.yml
+  # - ./docker/compose.mongo.yml
+  - ./docker/compose.postgres.yml
