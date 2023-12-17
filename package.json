@@ -4,7 +4,8 @@
   "license": "LGPL-3.0-or-later",
   "scripts": {
     "start": "npm run serve:api",
-    "serve:api": "nx run-many -t serve --projects=tag:api-*"
+    "serve:api": "nx run-many -t serve --projects=tag:api-*",
+    "serve:web": "nx serve website-dev"
   },
   "private": true,
   "dependencies": {

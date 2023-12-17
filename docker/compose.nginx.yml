@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+  nginx:
+    build:
+      context: ..
+      dockerfile: ./nginx/docker/Dockerfile.dev
+    image: osmocode/nginx
+    container_name: nginx
+    volumes:
+      # NGINX CONFIG
+      - ../nginx/config/nginx.dev.conf:/etc/nginx/nginx.conf
+      # SELF SIGNED SSL CERTS
+      - ../nginx/ssl/dhparam/dhparam.pem:/etc/nginx/dhparam.pem
+      - ../nginx/ssl/certs/localhost.crt:/etc/nginx/ssl/localhost.crt
+      - ../nginx/ssl/certs/localhost.key:/etc/nginx/ssl/localhost.key
+    ports:
+      - 80:80
+      - 443:443
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'

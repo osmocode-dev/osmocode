@@ -49,5 +49,5 @@
       }
     }
   },
-  "tags": ["api-ms-auth"]
+  "tags": ["api-service-auth"]
 }
